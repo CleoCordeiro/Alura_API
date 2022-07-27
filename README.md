@@ -2,7 +2,8 @@
 
 # Descrição
 Api Rest Desenvolvida durante a imersão Java da Alura,
-Com os seguintes objetivos criar uma lista de linguagens e Criar stickers personalizados para serem usados no whatsapp.
+Com os seguintes objetivos criar uma lista de linguagens e salva no banco de dados.
+Criar stickers personalizados para serem usados no whatsapp após a criação gera do download do sticker criado.
 
 ## Contém os seguinte endpoits
 
