@@ -1,13 +1,16 @@
 # Alura_API
 
-# Descrição
+# 📃Descrição
 Api Rest Desenvolvida durante a imersão Java da Alura,
 Com os seguintes objetivos criar uma lista de linguagens e salva no banco de dados.
 Criar stickers personalizados para serem usados no whatsapp após a criação gera do download do sticker criado.
 
+## 🌎 Link da API
+ https://imersaojava.herokuapp.com/
+
 ## Contém os seguinte endpoits
 
-### linguagens:
+### 🖥️ /linguagens:
 
 - GET Buscar todas as linguagens
 - GET/{id} Buscar linguagem por id
@@ -15,7 +18,7 @@ Criar stickers personalizados para serem usados no whatsapp após a criação ge
 - PATCH/{id} Atualizar parcialmente uma linguagem
 - DELETE/{id} Deleta uma linguagem
   
-### stickers:
+### 🖼️ /stickers:
 - POST Cria um Sticker Personalizado
 
 ## ✔️ Técnicas e tecnologias utilizadas
@@ -26,7 +29,7 @@ Criar stickers personalizados para serem usados no whatsapp após a criação ge
 - `MongoDB`: MongoDB Atlas Cloud
 - `Springdoc-openapi`: Versão 1.6.9
 
-## Documentação OpenAPI(Swagger)
+## 📄 Documentação OpenAPI(Swagger)
 https://imersaojava.herokuapp.com/swagger-ui/index.html
 
 <img src="./assets/swagger.gif">
