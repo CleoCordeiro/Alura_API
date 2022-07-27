@@ -53,7 +53,7 @@ public class LanguageController {
     @ApiResponse(responseCode = "404", description = "Linguagem não encontrada", content = @Content(schema = @Schema(implementation = LanguageErroDetails.class)))
     @Operation(summary = "Buscar Lingagem Por ID", description = "Busca uma Linguagem Por ID", method = "GET")
     @GetMapping("/{id}")
-    public ResponseEntity<Object> findLanguageById(@PathVariable String id) {
+    public ResponseEntity<Language> findLanguageById(@PathVariable String id) {
         return ResponseEntity.ok(languageRepository.findByIdOrThrow(id));
     }
 
@@ -73,6 +73,8 @@ public class LanguageController {
     public ResponseEntity<Language> updateLanguage(@PathVariable String id,
             @Valid @RequestBody LanguageForm languagefForm) {
         Language language = languageRepository.findByIdOrThrow(id);
+        UpdateObjectValues updateObjectValues = new UpdateObjectValues();
+        updateObjectValues.updateObject(languagefForm, language);
         return ResponseEntity.status(HttpStatus.OK).body(languageRepository.save(language));
     }
 
@@ -81,7 +83,7 @@ public class LanguageController {
     @ApiResponse(responseCode = "404", description = "Linguagem não encontrada", content = @Content(schema = @Schema(implementation = LanguageErroDetails.class)))
     @Operation(summary = "Atualizar Parcialmente", description = "Atualiza Parcialmente Uma Linguagem", method = "PATCH")
     @PatchMapping("/{id}")
-    public ResponseEntity<Object> updatePartialLanguage(@PathVariable String id,
+    public ResponseEntity<Language> updatePartialLanguage(@PathVariable String id,
             @RequestBody LanguageForm languagefForm) {
         Language language = languageRepository.findByIdOrThrow(id);
         UpdateObjectValues updateObjectValues = new UpdateObjectValues();
@@ -95,7 +97,7 @@ public class LanguageController {
     @ApiResponse(responseCode = "404", description = "Linguagem não encontrada", content = @Content(schema = @Schema(implementation = LanguageErroDetails.class)))
     @Operation(summary = "Deletar Lingagem", description = "Deleta uma Linguagem", method = "DELETE")
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deletLanguage(@PathVariable String id) {
+    public ResponseEntity<String> deletLanguage(@PathVariable String id) {
         Language language = languageRepository.findByIdOrThrow(id);
         languageRepository.delete(language);
         return ResponseEntity.status(HttpStatus.OK).body("Linguagem deletada com sucesso!");
